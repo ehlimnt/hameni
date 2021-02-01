@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"/>
+<head>
+<meta charset="utf-8"/>
+<title>Saisie d'un compte</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+
+</head>
+<body>
+<div class="col-md-6 col-xs-12 spacer col-md-offset-3">
+<div class="panel panel-default">
+<div class="panel-heading">Saisie d'un Etudiant</div>
+<div class="panel-body">
+
+
+
+
+
+<form th:action="@{SaveEtudiant}" method="post" th:object="${etudiant}">
+<div class="form-group">
+<label class="control-label">Matricule:</label>
+<input type="text" th:field="*{matricule}" class="form-control"/>
+<span></span>
+</div>
+<div class="form-group">
+<label class="control-label">Nom:</label>
+<input type="text" th:field="*{nom}" class="form-control" required="true"/>
+<span th:errors="*{nom}"></span>
+</div>
+<div class="form-group">
+<label class="control-label">Prenom:</label>
+<input type="text" th:field="*{prenom}" class="form-control"/>
+<span th:errors="*{prenom}"></span>
+</div>
+<div class="form-group">
+<label class="control-label">Email:</label>
+<input type="text" th:field="*{email}" class="form-control"/>
+<span ></span>
+</div>
+
+<div  class="form-group">
+<label class="control-label">Choisissez le dep:</label>
+<select name="dep"  th:field="*{Dep}" class="form-control">
+    <option th:each= "deps:${deps}"
+    th:value=${deps.Codedpt}
+    th:utext=${deps.titreDpt}
+    />
+     
+</select>
+</div>
+<div  class="form-group">
+<label class="control-label">Choisissez votre semestre:</label>
+<select name="sem"  th:field="*{semestre}" class="form-control">
+    <option th:each= "semes:${semestre}"
+    th:value=${semes.codeSemestre}
+    th:utext=${semes.codeSemestre}
+    />
+     
+</select>
+</div>
+
+<div>
+<button type="submit" class="btn btn-primary">Enregistrer</button>
+</div>
+</form>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

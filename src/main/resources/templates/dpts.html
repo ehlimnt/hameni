@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>liste des dptss</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+
+</head>
+<body>
+<h1>Liste des dpts</h1>
+<div class ="container spacer">
+<table class="table table-striped">
+<thead>
+<tr> <th>code dept </th> <th>titre dpt </th> </tr>
+</thead>
+<tbody><tr th:each=c:${dpts}> 
+<th th:text=${c.Codedpt}> </th> 
+<th th:text=${c.titreDpt}>
+</tbody>
+</table>
+</div>
+</body>
+</html>

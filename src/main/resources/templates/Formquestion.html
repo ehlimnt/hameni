@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>liste des question</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+	th:href="@{/css/style.css}" />
+
+</head>
+<body>
+	<h1>Liste des Question</h1>
+
+	<form th:action="@{/Etudiant/SaveReponse}" method="post"
+		th:object="${reps1}">
+		<div class="container spacer">
+
+			<table class="table table-striped" th:each=c:${categ}>
+
+				<thead>
+					<tr th:text=${c.getTitrecatg()}></tr>
+					<tr>
+						<th>id</th>
+						<th>Question</th>
+						<th>Repondre</th>
+					</tr>
+
+				</thead>
+				<tbody>
+					<tr th:each=q:${c.getQuestion()} th:field="*{idQuestion}">
+
+						<th th:text=${q.qId}></th>
+						<th th:text=${q.question}></th>
+						
+						
+						
+						<th><label class="control-label"> </label> <select name="rep" id="rp"
+							th:field="${reps1.rep}" class="form-control">
+								<option value="">choissser la reponse</option>
+								<option value="non">non</option>
+								<option value="oui">oui</option>
+								<option value="Plutôt non">Plutôt non</option>
+								<option value="Plutôt oui">Plutôt oui</option>
+						</select></th>
+					</tr>
+				</tbody>			
+				</table>
+
+		</div>
+		<div>
+			<button type="submit" class="btn btn-primary">Enregistrer</button>
+		</div>
+	</form>
+
+
+
+
+
+
+</body>
+</html>

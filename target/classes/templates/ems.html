@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>liste des EM</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+	th:href="@{/css/style.css}" />
+
+</head>
+<body>
+	<h1>Liste des Element module</h1>
+	<div class="container spacer">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+				
+					
+					<th>codeEm</th>
+					<th>titreEM</th>
+					<th>semestre</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each=em:${ems}>
+					
+					
+					<th th:text=${em.codeEm}>
+					<th th:text=${em.titreEM}></th>
+					<th th:text=${em.semestre}></th>
+					
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

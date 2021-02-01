@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>liste des Reponses</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+	th:href="@{/css/style.css}" />
+
+</head>
+<body>
+	<h1>Liste des Reponses</h1>
+	<div class="container spacer">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+				
+					
+					<th>matriculEt</th>
+					<th>CodeEm</th>
+					<th>IDQuestuion</th>
+					<th>reponse</th>
+					<th>date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each=r:${reponses}>
+					
+					
+					<th th:text=${r.matriculEt}>
+					<th th:text=${r.CodeEm}></th>
+					<th th:text=${r.idQuestion}></th>
+					<th th:text=${r.rep}></th>
+					<th th:text=${r.date}></th>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

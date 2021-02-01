@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>liste des question</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+
+</head>
+<body>
+<h1>Liste des Questions</h1>
+<div class ="container spacer">
+<table class="table table-striped">
+<thead>
+<tr> <th>id </th> <th>question </th> </tr>
+</thead>
+<tbody><tr th:each=q:${questions}> 
+<th th:text=${q.qId}> </th> 
+<th th:text=${q.question}>
+</tbody>
+</table>
+</div>
+</body>
+</html>

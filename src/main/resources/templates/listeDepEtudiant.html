@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" />
+<head>
+<meta charset="utf-8" />
+<title>liste des Em </title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+	th:href="@{/css/style.css}" />
+
+</head>
+<body>
+
+	<h1>Liste des Element module</h1>
+	<div class="container spacer">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>codeEm</th>
+					<th>titreEM</th>
+					<th>Repondre</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each=em:${listeEM}>
+
+					<td th:text=${em.codeEm}></td>
+					<td th:text=${em.titreEM}></td>
+					<td><button type="button" class="btn btn-success">
+							<a
+								th:href="@{'/Etudiant/formulaireq/'+${em.codeEm}+'/'+${matricule}}">formulaire
+								de question</a>
+						</button></td>
+
+				</tr>
+				<tr th:each=em:${listeEMtra}>
+
+
+					<td th:text=${em.codeEm}></td>
+					<td th:text=${em.titreEM}></td>
+					<td><button type="button" class="btn btn-success">
+							<a
+								th:href="@{'/Etudiant/formulaireq/'+${em.codeEm}+'/'+${matricule}}">formulaire
+								de question</a>
+						</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
